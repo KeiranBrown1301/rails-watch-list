@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Lists</h1>
+
+  <%= link_to "Add a new List", new_list_path %>
+
+  <div class="container mt-3">
+    <ul>
+      <% @lists.each do |list| %>
+      <li><%= link_to list.name, list_path(list) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>

@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>RailsWatchList</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= csrf_meta_tags %>
@@ -12,6 +11,37 @@
   </head>
 
   <body>
+
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://www.thespruceeats.com/thmb/OnXEXgB_gVxmNpe4PNqZfaoRLGE=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/rainbow-colored-popcorn-5185361-hero-01-1b54ac2ac16843b99b7bea526289d94c.jpg" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-iconn"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Add a Film</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1712&q=80);">
+      <div class="container text-center">
+        <h1>Welcome to your Watch List!</h1>
+      </div>
+    </div>
+
+
     <%= yield %>
+
   </body>
 </html>
