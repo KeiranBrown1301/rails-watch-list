@@ -1,20 +1,34 @@
-<div class="banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1712&q=80);">
-  <div class="container text-center">
-    <h1>Welcome to your Watch List!</h1>
+  <div class="banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1712&q=80);">
+    <div class="container text-center">
+      <h1>Welcome to your Watch List!</h1>
+    </div>
   </div>
-</div>
 
-<div class="container">
-  <h1>Lists</h1>
-
-  <%= link_to "Add a new List", new_list_path %>
-
-  <div class="container mt-3">
-    <ul>
-      <% @lists.each do |list| %>
-      <li><%= link_to list.name, list_path(list) %></li>
-      <% end %>
-    </ul>
+  <div class="d-flex justify-content-center">
+    <%= link_to new_list_path, { class: "btn btn-outline-dark" } do %>
+      <span class="label label-primary">Add a New List</span>
+    <% end %>
   </div>
+
+  <div class="d-flex justify-content-center m-5">
+    <div class="container">
+        <div class="row">
+          <% @lists.each do |list| %>
+            <div class="col-md-6">
+              <% if list.photo.key.nil? %>
+                <div class="card-category"
+                    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);">
+                  <h3><%= link_to list.name, list_path(list) %></h3>
+                </div>
+              <% else %>
+                <div class="card-category"
+                    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
+                  <h3><%= link_to list.name, list_path(list) %></h3>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
+    </div>
 
 </div>
